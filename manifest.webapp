@@ -1,0 +1,36 @@
+{
+	"version": "0.1",
+	"name": "Univ Project",
+	"description": "Visualizing grad admissions",
+	"launch_path": "/index.html",
+	"icons": {
+		"16": "/app-icons/coffee-16.png",
+		"48": "/app-icons/coffee-48.png",
+		"128": "/app-icons/coffee-128.png"
+	},
+	"developer": {
+		"name": "Saurabh Kumar",
+		"url": "https://github.com/saurabhkb"
+	},
+	"locales": {
+		"es": {
+			"description": "Visualización de las admisiones de posgrado",
+			"developer": {
+				"url": "https://github.com/saurabhkb"
+			}
+		},
+		"it": {
+			"description": "Visualizing grad admissions",
+			"developer": {
+				"url": "https://github.com/saurabhkb"
+			}
+		}
+	},
+	"default_locale": "en",
+	"type": "privileged",
+	"permissions": {
+		"systemXHR": {
+			"description": "Connection with your own TinyTinyRSS server."
+		}
+	}
+}
