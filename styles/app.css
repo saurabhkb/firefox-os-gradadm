@@ -83,3 +83,27 @@ a.ui-state-focus {
 	display: none;
 }
 
+
+/*
+About view
+*/
+.about-content {
+	line-height: 1.3em;
+}
+.about-content ol li {
+	padding: 10px 0;
+}
+
+/*
+Tech view
+*/
+.tech-data {
+	line-height: 1.3em;
+}
+
+.tech-data ul {
+	list-style: none;
+}
+.tech-data ul li {
+	padding: 10px 0;
+}
