@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="fx_gradcafe">
+<html ng-app="fx_gradcafe" ng-csp>
 <head>
 	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
 	<meta content="utf-8" http-equiv="encoding">
@@ -9,10 +9,10 @@
 	<link href="styles/app.css" rel="stylesheet" />
 </head>
 <body role="document">
-	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation" ng-controller="navigControl">
 		<div class="container">
 			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<button type="button" class="navbar-toggle" ng-click="isCollapsed = !isCollapsed">
 					<span class="sr-only">Toggle navigation</span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
@@ -20,25 +20,20 @@
 				</button>
 				<a class="navbar-brand" href="#">Univ Project</a>
 			</div>
-			<div class="collapse navbar-collapse">
+			<div class="collapse navbar-collapse" collapse="isCollapsed">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="/">Home</a></li>
+					<li><a href="#">Home</a></li>
 					<li><a href="#about">About</a></li>
-					<li><a href="#tech">Technology</a></li>
 				</ul>
 			</div><!--/.nav-collapse -->
 		</div>
 	</div>
-	<div class="container view-container" ng-view>
-	</div><!-- container view-container -->
+	<div class="container view-container" ng-view> </div>
 </body>
 
 <script src="scripts/Chart.js"></script>
-<script src="scripts/jquery-1.11.0.js"></script>
-<script src="scripts/bootstrap.js"></script>
-<script src="scripts/jquery-ui.js"></script>
 <script src="scripts/angular.js"></script>
 <script src="scripts/angular-route.js"></script>
+<script src="scripts/ui-bootstrap-tpls-0.10.0.js"></script>
 <script src="scripts/app.js"></script>
-
 </html>
