@@ -28,6 +28,10 @@
 			</div><!--/.nav-collapse -->
 		</div>
 	</div>
+	<div>
+		<alert ng-repeat="alert in alerts" type="alert.type" close="alert.close()">{{alert.msg}}</alert>
+	</div>
+
 	<div class="container view-container" ng-view> </div>
 </body>
 
