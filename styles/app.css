@@ -30,9 +30,6 @@ body {
 	border: 2px solid #ccc;
 	padding: 20px 0;
 }
-.ui-autocomplete-loading {
-	background: white url('/images/loader.gif') right center no-repeat;
-}
 
 .form-control {
 	border: 2px solid #ccc;
@@ -87,6 +84,7 @@ body {
 .content-container ul {
 	list-style: none;
 }
+
 ul.list li, ol.list li {
 	padding: 10px 0;
 }
