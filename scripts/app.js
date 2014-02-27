@@ -14,15 +14,8 @@ app.factory('AppAlert', [
 					}
 				}];
 			},
-			closeAlert: function(alert) {
-				return this.closeAlertIdx($rootScope.alerts.indexOf(alert));
-			},
-			closeAlertIdx: function(index) {
-				return $rootScope.alerts.splice(index, 1);
-			},
-			clear: function(){
-				$rootScope.alerts = [];
-			}
+			closeAlert: function(alert) { return this.closeAlertIdx($rootScope.alerts.indexOf(alert)); },
+			closeAlertIdx: function(index) { return $rootScope.alerts.splice(index, 1); },
 		};
 	}
 ]);
@@ -52,15 +45,21 @@ function graphController($scope, $http, AppAlert) {
 	};
 	$scope.onSubmit = function() {
 		if($scope.univ && $scope.year && $scope.degree) {
+			$scope.loading = true;
 			$http
 			.post("http://boiling-sands-9001.herokuapp.com/fetch_univ", {'univ': $scope.univ, 'year': $scope.year, 'degree': $scope.degree})
 			.success(function(data) {
+				$scope.loading = false;
 				if(data.status == "OK") {
 					var ctx = document.getElementById("myChart").getContext("2d");
 					myNewChart = new Chart(ctx).Line(data, {'scaleOverride': true, 'scaleSteps': 10, 'scaleStepWidth': 2, 'scaleStartValue': 0});
 				} else if(data.status == "INVALID_VAL") {
 					AppAlert.add("danger", "Please fill in all fields!");
 				}
+			})
+			.error(function(data, status, headers, config) {
+				$scope.loading = false;
+				AppAlert.add("danger", "Could not connect to server!");
 			});
 		} else {
 			AppAlert.add("danger", "please fill in all fields!");

@@ -38,6 +38,10 @@ body {
 	margin-bottom: 10px;
 }
 
+.form-control-no-border {
+	border: none;
+}
+
 .typeahead, .tt-query, .tt-hint {
 	display: block;
 	padding: 7px 7px;
