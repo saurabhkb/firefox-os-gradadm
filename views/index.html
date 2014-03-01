@@ -9,15 +9,20 @@
 		</select>
 
 		<button type="submit" class="form-control"><span class="glyphicons glyphicon-star"></span></button>
+
 		<div class="spinner form-control form-control-no-border" ng-show="loading">
-		<img src="images/loader.gif" />
+			<img src="images/loader.gif" />
 		</div>
 	</form>
-	<div class="alert alert-danger alert-dismissable fade in" style="display: none;">
-		<button type="button" class="close"  aria-hidden="true">&times;</button>
-		<strong>Error!</strong> Please fill in all fields.
+	<div id="legend" class="legend">
+		<span class="heading">University Admission Trends</span>
+		<span class="title" style="border-color: rgb(0, 230, 0);">Accepts</span>
+		<span class="title" style="border-color: rgb(230, 0, 0);">Rejects</span>
 	</div>
 	<div class="holder">
 		<canvas id="myChart" width="1500" height="400"></canvas>
 	</div>
+	<footer>
+	Source: <a href="http://thegradcafe.com/survey/">thegradcafe</a>
+	</footer>
 </div>

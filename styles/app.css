@@ -25,10 +25,24 @@ body {
 	text-decoration: underline;
 }
 .holder {
-	margin-top: 20px;
 	overflow-x: scroll;
 	border: 2px solid #ccc;
 	padding: 20px 0;
+}
+
+.legend {
+	padding: 10px 0;
+}
+
+.legend .title {
+	margin: 0.5em;
+	border-style: solid;
+	border-width: 0 0 0 1em;
+	padding: 0 0.3em;
+}
+.legend .heading {
+	font-size: 17px;
+	margin-right: 40px;
 }
 
 .form-control {
