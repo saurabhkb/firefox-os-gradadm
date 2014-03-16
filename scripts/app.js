@@ -33,7 +33,6 @@ function graphController($scope, $http, AppAlert) {
 	$scope.years = [{'value': 2014, 'label': 2014}, {'value': 2013, 'label': 2013}, {'value': 2012, 'label': 2012}];
 	$scope.degrees = [{'value': "PhD", 'label': "PhD"}, {'value': "Masters", 'label': "MS"}];
 	$scope.getUnivs = function(val) {
-		console.log(val);
 		return $http.get("http://boiling-sands-9001.herokuapp.com/autocomplete", { params: { term: val } }).then(function(res) {
 			var addresses = [];
 			console.log(res);
@@ -52,10 +51,9 @@ function graphController($scope, $http, AppAlert) {
 				$scope.loading = false;
 				if(data.status == "OK") {
 					var ctx = document.getElementById("myChart").getContext("2d");
-					myNewChart = new Chart(ctx).Line(data, {'scaleOverride': true, 'scaleSteps': 10, 'scaleStepWidth': 2, 'scaleStartValue': 0});
-				} else if(data.status == "INVALID_VAL") {
-					AppAlert.add("danger", "Please fill in all fields!");
-				}
+					if(data.exists == 0) AppAlert.add("danger", "No data is available for that university!");
+					else myNewChart = new Chart(ctx).Line(data, {'scaleOverride': true, 'scaleSteps': 10, 'scaleStepWidth': 2, 'scaleStartValue': 0});
+				} else if(data.status == "INVALID_VAL") AppAlert.add("danger", "Please fill in all fields!");
 			})
 			.error(function(data, status, headers, config) {
 				$scope.loading = false;
